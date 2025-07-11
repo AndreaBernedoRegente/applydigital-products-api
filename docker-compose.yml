@@ -1,0 +1,32 @@
+version: '3.8'
+services:
+  mongo:
+    image: mongo:6
+    restart: always
+    container_name: mongo
+    ports:
+      - '27018:27018'
+    volumes:
+      - mongo_data:/data/db
+
+  api:
+    build: .
+    container_name: nest-api
+    restart: always
+    ports:
+      - '3000:3000'
+    depends_on:
+      - mongo
+    environment:
+      - MONGODB_URI=mongodb://mongo:27017/applydigital_products
+      - CONTENTFUL_SPACE_ID=${CONTENTFUL_SPACE_ID}
+      - CONTENTFUL_ACCESS_TOKEN=${CONTENTFUL_ACCESS_TOKEN}
+      - CONTENTFUL_ENVIRONMENT=${CONTENTFUL_ENVIRONMENT}
+      - CONTENTFUL_CONTENT_TYPE=${CONTENTFUL_CONTENT_TYPE}
+      - JWT_SECRET=${JWT_SECRET}
+      - ADMIN_USER=${ADMIN_USER}
+      - ADMIN_PASS=${ADMIN_PASS}
+      - NODE_ENV=production
+
+volumes:
+  mongo_data:

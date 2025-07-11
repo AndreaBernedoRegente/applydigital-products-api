@@ -1,0 +1,35 @@
+# Node modules
+node_modules/
+
+# Build output
+dist/
+coverage/
+
+# Environment variables
+.env
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Docker
+docker-compose.override.yml
+
+# MongoDB data
+mongo_data/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Test output
+test-results/
+
+# Misc
+*.tgz
