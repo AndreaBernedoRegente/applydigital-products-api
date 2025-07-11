@@ -36,6 +36,7 @@ describe('ReportsController', () => {
   it('should return deleted percentage', async () => {
     const result = await controller.getDeletedPercentage();
     expect(result).toHaveProperty('percentage');
+    // eslint-disable-next-line @typescript-eslint/unbound-method
     expect(service.getDeletedPercentage).toHaveBeenCalled();
   });
 
@@ -46,12 +47,14 @@ describe('ReportsController', () => {
       undefined,
     );
     expect(result).toHaveProperty('percentage');
+    // eslint-disable-next-line @typescript-eslint/unbound-method
     expect(service.getNonDeletedPercentage).toHaveBeenCalled();
   });
 
   it('should return average price', async () => {
     const result = await controller.getAveragePrice();
     expect(result).toHaveProperty('averagePrice');
+    // eslint-disable-next-line @typescript-eslint/unbound-method
     expect(service.getAveragePrice).toHaveBeenCalled();
   });
 });

@@ -29,6 +29,7 @@ describe('AuthController', () => {
       password: 'admin123456',
     });
     expect(result).toHaveProperty('access_token');
+    // eslint-disable-next-line @typescript-eslint/unbound-method
     expect(service.login).toHaveBeenCalled();
   });
 });

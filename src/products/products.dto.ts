@@ -1,11 +1,6 @@
-import {
-  IsString,
-  IsNumber,
-  IsOptional,
-  ValidateNested,
-} from 'class-validator';
-import { Transform, Type } from 'class-transformer';
-import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
+import { IsString, IsNumber, IsOptional } from 'class-validator';
+import { Transform } from 'class-transformer';
+import { ApiPropertyOptional } from '@nestjs/swagger';
 
 export class CreateProductDto {
   @IsString()
